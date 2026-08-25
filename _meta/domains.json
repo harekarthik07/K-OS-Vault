@@ -1,0 +1,37 @@
+{
+  "_comment": "Single source of truth for K-OS domain routing. Edit this file to add/rename buckets. Folder names under 04 Knowledge/ and 06 Resources/ must match keys exactly. Keywords are lowercased substrings; aliases are alt names the AI may emit. Order matters — first match wins, so put specific domains before general ones.",
+  "domains": {
+    "Power Electronics": {
+      "keywords": ["igbt", "mosfet", "svpwm", "modulation index", "switching loss", "conduction loss", "inverter", "gate driver", "dead time", "pwm", "dc link"],
+      "aliases": ["power_electronics", "power-electronics"]
+    },
+    "Thermal Management": {
+      "keywords": ["heatsink", "junction temperature", "thermal resistance", "thermal impedance", "rc network", "foster network", "cauer network", "thermal interface", "tim", "heat spreader", "thermal time constant"],
+      "aliases": ["thermal", "cooling", "thermal_management"]
+    },
+    "Heat Transfer": {
+      "keywords": ["conduction", "convection", "radiation", "nusselt", "prandtl", "biot", "fourier", "fin efficiency", "boundary layer", "natural convection", "forced convection"],
+      "aliases": ["heat_transfer", "ht"]
+    },
+    "CFD": {
+      "keywords": ["reynolds", "turbulence", "k-omega", "k-epsilon", "sst", "les", "rans", "mesh", "y+", "wake", "separation", "fluent", "openfoam", "ansys cfd"],
+      "aliases": ["cfd", "fluid_dynamics", "aero"]
+    },
+    "Vibrations": {
+      "keywords": ["modal", "natural frequency", "damping", "resonance", "fft", "vibration", "harmonic", "transient", "mode shape", "eigenfrequency"],
+      "aliases": ["vibrations", "dynamics", "nvh"]
+    },
+    "Motor Control": {
+      "keywords": ["foc", "field oriented", "park transform", "clarke", "back emf", "torque control", "speed loop", "current loop", "encoder", "resolver", "id iq"],
+      "aliases": ["motor_control", "control"]
+    },
+    "Solid Mechanics": {
+      "keywords": ["stress", "strain", "von mises", "yield", "fatigue", "fea", "static analysis", "bolt preload", "contact", "hertzian"],
+      "aliases": ["solid_mechanics", "structural", "fea"]
+    }
+  },
+  "fallback": {
+    "domain": "Uncategorized",
+    "action": "leave_in_inbox"
+  }
+}
