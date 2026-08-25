@@ -1,0 +1,1 @@
+"Just finished the bench test. The thermal mass of the busbar was definitely too low, causing the cells to spike. Need to correlate this data in the next road case test." 
