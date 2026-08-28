@@ -3,7 +3,7 @@
 .obsidian/plugins/obsidian-local-rest-api/data.json
 __pycache__/
 
-# Secrets and per-machine state — never sync these
+# Secrets and per-machine state - never sync these
 _meta/.env
 _meta/.active_project
 
