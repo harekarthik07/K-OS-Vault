@@ -2,6 +2,11 @@
 .obsidian/cache
 .obsidian/plugins/obsidian-local-rest-api/data.json
 __pycache__/
+
+# Secrets and per-machine state — never sync these
+_meta/.env
+_meta/.active_project
+
 kos_sync.py
 kos_capture_hub_backup.py
 kos_capture_hub_backup_2.py

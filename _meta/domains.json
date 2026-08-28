@@ -30,6 +30,19 @@
       "aliases": ["solid_mechanics", "structural", "fea"]
     }
   },
+  "_comment_aliases": "Concept aliases: canonical display name -> every other way you write it. Prevents 'Tj', 'junction temp' and 'Junction Temperature' becoming three separate notes. Matching ignores case, underscores and hyphens, so only add genuinely different spellings. Add to this whenever you catch a duplicate in Harvest.",
+  "concept_aliases": {
+    "Junction Temperature": ["tj", "junction temp", "t_j"],
+    "Thermal Resistance": ["rth", "r_th", "thermal res"],
+    "Thermal Interface Material": ["tim", "thermal paste", "thermal grease"],
+    "Insulated Gate Bipolar Transistor": ["igbt"],
+    "Space Vector PWM": ["svpwm", "space vector modulation"],
+    "Finite Element Analysis": ["fea", "finite element"],
+    "Computational Fluid Dynamics": ["cfd"],
+    "Field Oriented Control": ["foc", "vector control"],
+    "Heat Transfer Coefficient": ["htc", "h coefficient"]
+  },
+
   "fallback": {
     "domain": "Uncategorized",
     "action": "leave_in_inbox"
