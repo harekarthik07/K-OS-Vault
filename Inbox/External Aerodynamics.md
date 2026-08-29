@@ -123,3 +123,43 @@ High-quality meshes prioritize density precisely where the physics demand it.
 - Apply volumetric refinement zones (density boxes) to capture high-gradient regions, such as stagnation points, leading edges, and trailing edge vortex shedding.
     
 - Utilize curvature-based refinement on curved surfaces to ensure the physical geometry is smoothly represented with at least two cells across any meaningful curved feature.
+
+### 4. Physics & Numerical Methods (Solve)
+
+Your **CFD and Fluid Mechanics** file highlights several crucial solver settings. Selecting the right physics dictates numerical stability and physical accuracy.
+
+|**Setting**|**Selection Criteria**|**Description**|
+|---|---|---|
+|**Solver Type**|Pressure-Based vs. Density-Based|Use Pressure-Based for incompressible flows ($Ma < 0.3$). Use Density-Based for compressible flows with shockwaves ($Ma > 0.3$).|
+|**Turbulence Model**|$k-\omega$ SST|The industry standard for external aerodynamics. It blends the $k-\omega$ model near the wall (great for adverse pressure gradients) with $k-\epsilon$ in the free stream.|
+|**Advanced Corrections**|Low-Re & Curvature|**Low-Re correction** helps accurately model flows where viscous forces dominate locally. **Curvature correction** modifies the turbulence production terms in regions of strong streamline curvature (like leading edges or vortices).|
+
+- **Pressure-Velocity Coupling:**
+    
+    - **SIMPLE/SIMPLEC:** Good for steady-state, incompressible flows. SIMPLEC converges slightly faster for simpler flows.
+        
+    - **PISO:** Highly recommended for transient (time-dependent) simulations because it maintains continuity at every time step.
+        
+    - **Coupled:** Solves momentum and pressure-based continuity equations simultaneously. It uses more RAM but is highly robust and recommended for complex aerodynamics.
+        
+
+### 5. Data Extraction & Interpretation (Post-Processing)
+
+Translating colorful contours into actionable engineering data is the final hurdle.
+
+- **Pressure Coefficient ($C_p$):** Instead of raw pressure, engineers look at surface $C_p$ distribution to find stagnation points ($C_p = 1$) and high-velocity suction peaks ($C_p < 0$).
+    
+- **Wake Visualization:** Plotting Turbulent Kinetic Energy (TKE) or using $\lambda_2$ criterion isosurfaces helps visualize exactly where the flow becomes chaotic and sheds vortices (identifying the "dead regions").
+    
+
+### 6. Quality Control & Best Practices
+
+A converged residual graph is meaningless if the mesh is poor or the physics are wrong.
+
+- **Quality Metrics:**
+    
+    - **Orthogonal Quality:** Should ideally be $> 0.1$. It measures how close the angle between adjacent cell faces is to optimal.
+        
+    - **Skewness:** Must be kept $< 0.95$ (ideally $< 0.8$). Highly skewed cells cause the solver equations to become ill-conditioned, leading to divergence.
+        
+- **Monitor Points:** Always monitor physical values like $C_D$ and $C_L$ over iterations. True convergence is reached when these values flatline, even if the equation residuals have already dropped below $10^{-4}$.
