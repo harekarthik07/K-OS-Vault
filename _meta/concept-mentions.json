@@ -1,0 +1,11 @@
+{
+  "thermal resistance": {
+    "count": 1,
+    "display": "Thermal Resistance",
+    "first_seen": "2026-08-29",
+    "last_seen": "2026-08-29",
+    "projects": [
+      "ETM For Heatsink and IGBT"
+    ]
+  }
+}
