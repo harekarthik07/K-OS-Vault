@@ -8,6 +8,8 @@ Changes from v2:
   * Dedup: a concept already in Knowledge/ or Concepts/ links instead of duplicating
   * API key read from _meta/.env or $GEMINI_API_KEY — never hardcoded
   * Friday nudge: opens Harvest when concepts have been incubating too long
+  * System tray: closing the window minimizes to tray instead of quitting, so
+    the hotkey stays alive. Quit from the tray menu when you actually want out.
 
 Must live at <vault>/_tools/kos_capture_hub.py — paths resolve relative to this file.
 Self-check: python kos_capture_hub.py --selftest
@@ -520,9 +522,15 @@ if __name__ == "__main__" and "--selftest" in sys.argv:
 from tkinter import filedialog, messagebox  # noqa: E402
 
 import customtkinter as ctk  # noqa: E402
-from PIL import Image, ImageGrab, ImageTk  # noqa: E402
+from PIL import Image, ImageDraw, ImageGrab, ImageTk  # noqa: E402
 from watchdog.events import FileSystemEventHandler  # noqa: E402
 from watchdog.observers import Observer  # noqa: E402
+
+try:
+    import pystray  # noqa: E402
+    HAS_TRAY = True
+except ImportError:
+    HAS_TRAY = False
 
 
 # ============================================================
@@ -657,6 +665,7 @@ class KOSApp(ctk.CTk):
         self.pil_image_obj = None
         self.last_note_path = None
         self._quick_win = None
+        self.tray_icon = None
 
         projects = list_projects()
         saved = load_active_project()
@@ -680,6 +689,7 @@ class KOSApp(ctk.CTk):
 
         self.setup_watchdog()
         self.setup_hotkeys()
+        self.setup_tray()
         self.after(150, self._poll_log)
         self.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.bind("<Control-v>", lambda e: self.paste_from_clipboard())
@@ -727,6 +737,9 @@ class KOSApp(ctk.CTk):
         bottom = ctk.CTkFrame(self.sidebar, fg_color="transparent")
         bottom.grid(row=4, column=0, sticky="ew", padx=16, pady=(0, 12))
         ctk.CTkLabel(bottom, text="Ctrl+Alt+K  quick capture", font=(F_MONO, 10),
+                     text_color=TEXT_DIM).pack(anchor="w", pady=(0, 2))
+        tray_hint = "Close = minimize to tray" if HAS_TRAY else "pystray not installed — close quits"
+        ctk.CTkLabel(bottom, text=tray_hint, font=(F_MONO, 10),
                      text_color=TEXT_DIM).pack(anchor="w", pady=(0, 8))
         ghost_button(bottom, "Open Vault", self.open_vault_folder).pack(fill="x")
 
@@ -976,6 +989,31 @@ class KOSApp(ctk.CTk):
         }
         HotkeyListener(bindings).start()
         self._log("hotkeys · Ctrl+Alt+K capture · Ctrl+Alt+Shift+K show window")
+
+    def _make_tray_image(self):
+        """Small green square with a 'K' — no icon asset needed."""
+        size = 64
+        img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+        d = ImageDraw.Draw(img)
+        d.rounded_rectangle((2, 2, size - 2, size - 2), radius=14, fill=ACCENT)
+        d.text((size / 2, size / 2), "K", fill=ACCENT_INK, anchor="mm")
+        return img
+
+    def setup_tray(self):
+        """Closing the window hides it; the app keeps running so the hotkey stays live.
+        Quit only from this menu (or Ctrl+C in a console launch)."""
+        if not HAS_TRAY or sys.platform != "win32":
+            if not HAS_TRAY:
+                self._log("pystray not installed — closing the window will quit the app")
+            return
+
+        menu = pystray.Menu(
+            pystray.MenuItem("Show", lambda: self.after(0, self._restore_main), default=True),
+            pystray.MenuItem("Capture (Ctrl+Alt+K)", lambda: self.after(0, self.show_quick_capture)),
+            pystray.MenuItem("Quit K-OS", lambda: self.after(0, self._quit)),
+        )
+        self.tray_icon = pystray.Icon("kos_capture_hub", self._make_tray_image(), "K-OS Capture Hub", menu)
+        threading.Thread(target=self.tray_icon.run, daemon=True).start()
 
     def _restore_main(self):
         self.deiconify()
@@ -1364,9 +1402,20 @@ class KOSApp(ctk.CTk):
             self._log(f"  ! {e}")
 
     def on_closing(self):
+        """The window close button hides to tray instead of quitting, so the
+        Ctrl+Alt+K hotkey and Inbox watcher stay alive. Quit from the tray menu."""
+        if self.tray_icon is not None:
+            self.withdraw()
+            self._log("minimized to tray · right-click the K-OS icon to reopen or quit")
+        else:
+            self._quit()
+
+    def _quit(self):
         if getattr(self, "observer", None) and self.observer.is_alive():
             self.observer.stop()
             self.observer.join()
+        if self.tray_icon is not None:
+            self.tray_icon.stop()
         self.destroy()
 
 
