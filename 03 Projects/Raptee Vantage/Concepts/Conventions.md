@@ -1,14 +1,23 @@
+---
+type: concept
+project: Raptee Vantage
+status: core
+tags: [conventions]
+---
+
 # Conventions
 
 - **Never write to `.db` / `.db-wal` / `.db-shm` directly.** Go through the
   owning suite's DB manager (`*_db_manager.py`) or `db_bridge.py`.
-- Adding a parameter touches multiple layers: eval logic, golden limits, DB
+- Adding a parameter touches **five layers**: eval logic, golden limits, DB
   schema, API route, Next.js display. Miss one → silent wrong verdict. Trace
   all five. (`/add-param` skill does this systematically.)
 - FAIL alerts → Teams via `teams_notify.py`, configured centrally in the home
   Admin Zone, not per-suite. Every send logged in `notifications.db`.
 - `# ====` banner comments separate route groups in `fastapi_server.py` —
   keep new routes inside the right banner.
+- Any new roll-up **must** call `is_counted()` / pass `counted_only=True`.
+  See [[in_verdict Gate]].
 
 ## Working agreements
 - Plan before touching `fastapi_server.py` or any verdict logic.
@@ -16,5 +25,6 @@
   the diff.
 - Ask rather than assume when a verdict looks wrong — the data is often
   correct and the expectation is what's off.
+- **Never loosen a limit to make something pass.** See rule 2 in [[Verdict Engine]].
 
-See [[Home]] · [[Verdict Pipeline]] · [[Landmines]] · [[Architecture]]
+See [[00 Home]] · [[Workflow]] · [[Verdict Engine]] · [[Landmines]] · [[Architecture]]
