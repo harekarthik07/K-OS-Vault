@@ -9,6 +9,20 @@ Append newest at top. One `##` per day.
 
 ---
 
+## 2026-09-02
+**Did:**
+- Diagnosed persistent reverse flow at the fan exit on the new heatsink [[HS_I1-G1-K1]] (150+ faces and growing, continuity stalled ~6e-2). Ruled out hub blockage, H/D and the fan zone — all unchanged. Root cause: fin redesign (curved/open → straight/tight + central pin cluster) raised system K ~3–4×.
+- Defined a reusable **fan PQ health check** (Q_op, Δp_op, curve interpolation, ε gate, φ, slope, K) → [[Fan PQ Health Check & Reverse-Flow Diagnosis]].
+**Learned:**
+- A *growing* reverse-flow face count is a physics/BC problem, not solver noise — more iterations won't fix it.
+- ε = |Δp_op − Δp_curve|/Δp_curve is a better convergence gate than residuals for fan cases. This case: ε = 17.3 % → results untrustworthy. φ = 0.357 → already at the choked edge.
+- The hub-shadow dead zone at H/D = 0.14 is real physics, not an artefact — it needs its own h, not an averaged one. Possible 3-node Cauer with a parallel dead-zone branch.
+**Next:**
+- Pull the old-case operating point to confirm K_new/K_old ≈ 3–4, then converge (Hybrid+FMG, coupled + pseudo-transient) to ε < 5 % before extracting any h.
+**Concepts touched:** [[Fan PQ Health Check & Reverse-Flow Diagnosis]]
+
+---
+
 ## 2026-09-01
 **Did:**
 - Consolidated the MC heatsink CHT setup into a single validated-baseline note (Concepts/MC Heatsink CHT — Consolidated Setup.md): Boussinesq density + Sutherland viscosity, operating conditions, reference values, y+ based h extraction method, and the proven Courant-200 coupled solver config.

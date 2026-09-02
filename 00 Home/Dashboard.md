@@ -29,7 +29,7 @@ SORT file.mtime DESC
 ```tasks
 not done
 path includes 03 Projects
-group by function task.file.folder.split("/")[1]
+group by folder
 hide task count
 short mode
 ```
