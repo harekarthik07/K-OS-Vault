@@ -94,16 +94,16 @@ Every capacitor has **one terminal at a temperature node and one terminal at amb
 
 Using the corrected 3.36 kg casting mass and the CFD-derived parallel split, the full physical parameter set is:
 
-|**Component**|**Value**|**Physical meaning**|
-|---|---|---|
-|$Q$|568 W|Corrected IGBT loss back-calculated using 3.3 kg casting|
-|$R_{JC}$|0.042 K/W|Silicon-to-case, 6 dies in parallel|
-|$R_{TIM}$|0.010 K/W|Fasto paste, 100 μm[cite: 5, 6]|
-|$R_{conv,B}$|5.0 K/W|Base region under IGBT (Fan dead zone, low $h$)|
-|$R_{metal}$|~0.03 K/W|Lateral solid conduction through spider arms to outer fins|
-|$R_{conv,HS}$|0.108 K/W|Outer fins and casing walls (High $h$)|
-|$C_{plate}$|~1300 J/K|Baseplate-region mass, fast response[cite: 5, 6]|
-|$C_{hs}$|~1600 J/K|Rest of the heatsink, slow response[cite: 5, 6]|
+| **Component** | **Value** | **Physical meaning**                                       |
+| ------------- | --------- | ---------------------------------------------------------- |
+| $Q$           | 568 W     | Corrected IGBT loss back-calculated using 3.3 kg casting   |
+| $R_{JC}$      | 0.042 K/W | Silicon-to-case, 6 dies in parallel                        |
+| $R_{TIM}$     | 0.010 K/W | Fasto paste, 100 μm[cite: 5, 6]                            |
+| $R_{conv,B}$  | 5.0 K/W   | Base region under IGBT (Fan dead zone, low $h$)            |
+| $R_{metal}$   | ~0.03 K/W | Lateral solid conduction through spider arms to outer fins |
+| $R_{conv,HS}$ | 0.108 K/W | Outer fins and casing walls (High $h$)                     |
+| $C_{plate}$   | ~1300 J/K | Baseplate-region mass, fast response[cite: 5, 6]           |
+| $C_{hs}$      | ~1600 J/K | Rest of the heatsink, slow response[cite: 5, 6]            |
 
 > [!danger] The Engineering Takeaway
 > 

@@ -5,6 +5,7 @@ status: active            # active | paused | completed | archived
 started: <% tp.date.now("YYYY-MM-DD") %>
 domain_primary:           # main domain, must match _meta/domains.yaml
 domain_secondary: []
+current_phase: Phase 1
 ---
 
 # <% tp.file.folder() %>
@@ -18,6 +19,22 @@ domain_secondary: []
 - Results/    — final outputs, plots, verdicts
 - Concepts/   — incubating knowledge (harvested on Friday)
 - Resources/  — links, papers, datasheets (promoted on close)
+
+---
+
+## Roadmap
+
+Phase status legend: ✅ done · 🟢 in progress · ⚪ queued/TBD
+
+### ⚪ Phase 1 — <name> (started YYYY-MM-DD)
+`#tag1 #tag2`
+**Objective:** *(one-line goal of this phase)*
+**Tasks:**
+- [ ]
+
+*(when a phase completes: change ⚪/🟢 → ✅, add end date, and replace the Tasks block with a one-line link to `Results/YYYY-MM-DD Phase N — …`)*
+
+---
 
 ## Open Concepts (incubating)
 ```dataview
