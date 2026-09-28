@@ -1,6 +1,7 @@
 ---
 type: project_home
 project: CFD based heatsink thermals study (forced and natural convection)
+objective: "Fluent CHT of the MC heatsink under mixed convection to extract dyno-validated zone-wise h for the Cauer model."
 status: active
 started: 2026-09-01
 domain_primary: CFD
@@ -39,8 +40,8 @@ current_phase: Phase 1
 - [x] Std init + patch (fluid 309.16 K, IGBT 350 K, HS 320 K) ✅ 2026-09-02
 - [x] Run to convergence — residuals + report-value plateau + energy balance <1 % ✅ 2026-09-02
 - [x] **2026-09-02 blocker:** reverse flow at fan exit on [[HS_I1-G1-K1]] — see [[Fan PQ Health Check & Reverse-Flow Diagnosis]] ✅ 2026-09-02
-  - [ ] Pull old-case operating point, confirm `K_new/K_old ≈ 3–4`
-  - [ ] Re-converge: Hybrid Init + FMG, coupled + pseudo-transient, 1st→2nd order, backflow BCs set
+  - [x] Pull old-case operating point, confirm `K_new/K_old ≈ 3–4` ✅ 2026-09-03
+  - [x] Re-converge: Hybrid Init + FMG, coupled + pseudo-transient, 1st→2nd order, backflow BCs set ✅ 2026-09-03
   - [ ] Re-run PQ health check — require `ε < 5 %` before trusting any result
   - [ ] If still choked after convergence → escalate fin redesign to MC team
 - [ ] Check actual mesh y+ on HS, set Yplus-for-HTC to match

@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "migrated": 6,
+    "iconPacksPath": ".obsidian/icons",
+    "fontSize": 16,
+    "emojiStyle": "native",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "LiMail",
+      "RiSuitcaseLine",
+      "RiAiGenerate",
+      "LiBookSearch",
+      "LiComputer"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": false,
+    "iconInTitleEnabled": false,
+    "iconInTitlePosition": "above",
+    "iconInFrontmatterEnabled": false,
+    "iconInFrontmatterFieldName": "icon",
+    "iconColorInFrontmatterFieldName": "iconColor",
+    "iconsBackgroundCheckEnabled": false,
+    "iconsInNotesEnabled": true,
+    "iconsInLinksEnabled": true,
+    "iconIdentifier": ":",
+    "lucideIconPackType": "native",
+    "debugMode": false,
+    "useInternalPlugins": false
+  },
+  "_tools": "LiAlertCircle",
+  "00 Home": "LiHome",
+  "03 Projects": "LiAlbum",
+  "04 Knowledge": "RiBrainLine",
+  "05 Systems": "LiComputer",
+  "06 Resources": "LiBookSearch",
+  "08 AI": "RiAiGenerate",
+  "Attachments": "RiSuitcaseLine",
+  "Inbox": "LiMail"
+}

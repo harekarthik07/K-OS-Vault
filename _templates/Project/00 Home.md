@@ -3,6 +3,7 @@ type: project_home
 project: <% tp.file.folder() %>
 status: active            # active | paused | completed | archived
 started: <% tp.date.now("YYYY-MM-DD") %>
+objective:                # one-line goal (shows on the dashboard mission monitor)
 domain_primary:           # main domain, must match _meta/domains.yaml
 domain_secondary: []
 current_phase: Phase 1

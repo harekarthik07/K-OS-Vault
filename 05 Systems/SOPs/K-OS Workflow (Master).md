@@ -27,7 +27,7 @@ Work  ──►  Ctrl+Alt+K  ──►  keep working
           Harvest: Promote / Gist / Discard
                 │
                 ▼ (promoted ones)
-          04 Knowledge/<Domain>/  — permanent, reusable, done
+          04 Knowledge/concepts/  — permanent, reusable, done
 ```
 
 You touch three things: the hotkey, the Harvest tab, and (rarely) a new
@@ -83,7 +83,7 @@ For each concept card:
 
 | Decision | When | What happens |
 |---|---|---|
-| **Promote** | You'll need this on a *different* project someday | AI rewrites it generic, files it under `04 Knowledge/<Domain>/`, logged in `_meta/concept-registry.md` |
+| **Promote** | You'll need this on a *different* project someday | AI rewrites it generic, files it under `04 Knowledge/concepts/`, logged in `_meta/concept-registry.md` |
 | **Gist** | Only makes sense inside this one project | Stays in `<project>/Concepts/`, marked done, never asked again |
 | **Discard** | False positive, not actually a concept | Deleted |
 
@@ -114,7 +114,7 @@ setup beyond this.
 ## Rare — vault maintenance
 
 Every few months, not before: prune stale `Gist` cards nobody's referenced,
-tidy `04 Knowledge/_MOCs/`, archive a finished project by setting
+tidy `04 Knowledge/maps/`, archive a finished project by setting
 `status: archived` in its `00 Home.md`. Skip this until the vault actually
 has enough notes for it to matter — a MOC for 12 notes is wasted effort.
 

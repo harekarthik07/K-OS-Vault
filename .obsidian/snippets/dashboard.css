@@ -1,0 +1,383 @@
+/* ===== K-OS Dashboard — scoped to notes with cssclass: dashboard ===== */
+
+.dashboard {
+  --dash-accent: #e07a5f;
+  --dash-accent2: #6c8ebf;
+  --dash-radius: 12px;
+  --dash-card-bg: var(--background-secondary);
+  --dash-line: var(--background-modifier-border);
+}
+
+/* --- Title --- */
+.dashboard .inline-title,
+.dashboard h1:first-of-type {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* --- Nav pills: first paragraph under the H1.
+   Reading view wraps blocks in .el-h1 / .el-p, so target both structures. --- */
+.dashboard h1 + p,
+.dashboard .el-h1 + .el-p p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 8px;
+}
+.dashboard h1 + p a,
+.dashboard h1 + p code,
+.dashboard .el-h1 + .el-p a,
+.dashboard .el-h1 + .el-p code {
+  background: var(--dash-card-bg);
+  border: 1px solid var(--dash-line);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.dashboard h1 + p a:hover,
+.dashboard .el-h1 + .el-p a:hover {
+  background: var(--dash-accent);
+  color: #fff;
+  border-color: var(--dash-accent);
+  transform: translateY(-1px);
+}
+/* hide the " · " separators once links are pills */
+.dashboard .el-h1 + .el-p p { gap: 8px; }
+
+/* ===== Stat strip ===== */
+.dashboard .dash-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  margin: 14px 0 6px;
+}
+.dashboard .ds-tile {
+  background: var(--dash-card-bg);
+  border: 1px solid var(--dash-line);
+  border-radius: var(--dash-radius);
+  padding: 12px 14px;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.dashboard .ds-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.dashboard .ds-val {
+  font-size: 1.7em;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.dashboard .ds-label {
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-top: 5px;
+  font-weight: 600;
+}
+.dashboard .ds-tile.warn .ds-val { color: #e0a458; }
+.dashboard .ds-tile.bad  .ds-val { color: #d9534f; }
+.dashboard .ds-tile.bad  { border-color: #d9534f55; }
+.dashboard .ds-tile.good .ds-val { color: #5ca86c; }
+
+/* --- Section headers with accent bar --- */
+.dashboard h2 {
+  border: none;
+  padding-left: 12px;
+  margin-top: 1.6em;
+  border-left: 4px solid var(--dash-accent);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* --- Live project cards (rendered by the dataviewjs block) --- */
+.dashboard .dash-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 10px 0;
+}
+.dashboard .dash-card {
+  display: block;
+  background: var(--dash-card-bg);
+  border: 1px solid var(--dash-line);
+  border-radius: var(--dash-radius);
+  padding: 14px 16px;
+  text-decoration: none !important;
+  color: var(--text-normal);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.dashboard .dash-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+  border-color: var(--dash-accent);
+}
+.dashboard .dc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.dashboard .dc-phase {
+  font-size: 0.72em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--dash-accent);
+  color: #fff;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+.dashboard .dc-dom {
+  font-size: 0.72em;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.dashboard .dc-title {
+  font-weight: 700;
+  font-size: 0.98em;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.dashboard .dc-bar {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--background-modifier-border);
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.dashboard .dc-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--dash-accent2), var(--dash-accent));
+  transition: width 0.4s ease;
+}
+.dashboard .dc-meta {
+  font-size: 0.76em;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.dashboard .dc-next {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--dash-line);
+  font-size: 0.78em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Next Actions — Tasks block as a card ===== */
+.dashboard .block-language-tasks {
+  background: var(--dash-card-bg);
+  border: 1px solid var(--dash-line);
+  border-radius: var(--dash-radius);
+  padding: 6px 16px 10px;
+}
+.dashboard .block-language-tasks .task-list-item {
+  padding: 3px 0;
+}
+/* the "group by folder" headings become tidy section labels */
+.dashboard .block-language-tasks h4,
+.dashboard .tasks-group-heading {
+  font-size: 0.72em !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dash-accent);
+  font-weight: 700;
+  margin: 12px 0 4px;
+  border: none;
+}
+
+/* ===== Secondary callouts → 2-column card grid (ref #3 look) ===== */
+.dashboard .el-callout,
+.dashboard .callout {
+  display: inline-block;
+  width: calc(50% - 8px);
+  min-width: 270px;
+  vertical-align: top;
+  margin: 6px 4px;
+}
+/* wide singletons (knowledge listing, vault map, tasks) can stay full width */
+.dashboard .callout[data-callout="note"],
+.dashboard .callout[data-callout="danger"],
+.dashboard .callout[data-callout="warning"],
+.dashboard .callout[data-callout="success"],
+.dashboard .callout[data-callout="tip"],
+.dashboard .callout[data-callout="tasks"] {
+  width: 100%;
+  display: block;
+}
+
+/* --- Callout cards: lift on hover --- */
+.dashboard .callout {
+  border-radius: var(--dash-radius);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.dashboard .callout:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+}
+
+/* --- Tables: cleaner, roomier --- */
+.dashboard table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid var(--dash-line);
+  border-radius: var(--dash-radius);
+  overflow: hidden;
+}
+.dashboard th {
+  background: var(--dash-card-bg);
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+.dashboard td, .dashboard th { padding: 8px 12px; }
+.dashboard tbody tr:hover { background: var(--background-modifier-hover); }
+
+/* --- Horizontal rules: fade them out, sections carry the structure now --- */
+.dashboard hr { border-color: var(--dash-line); opacity: 0.4; }
+
+/* ===== Quick Add Task Component ===== */
+.dashboard .dash-quick-add {
+  background: var(--dash-card-bg);
+  border: 1px solid var(--dash-line);
+  border-radius: var(--dash-radius);
+  padding: 16px 18px;
+  margin: 14px 0 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.dashboard .dqa-header {
+  font-size: 0.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dash-accent);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dashboard .dqa-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.dashboard .dqa-select-proj,
+.dashboard .dqa-select-dest,
+.dashboard .dqa-select-prio,
+.dashboard .dqa-input-date {
+  background: var(--background-primary);
+  border: 1px solid var(--dash-line);
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: var(--text-normal);
+  font-size: 0.85em;
+}
+.dashboard .dqa-input-text {
+  flex: 3 1 240px;
+  background: var(--background-primary);
+  border: 1px solid var(--dash-line);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--text-normal);
+  font-size: 0.9em;
+}
+.dashboard .dqa-input-text:focus,
+.dashboard .dqa-select-proj:focus,
+.dashboard .dqa-select-dest:focus,
+.dashboard .dqa-input-date:focus,
+.dashboard .dqa-select-prio:focus {
+  border-color: var(--dash-accent);
+  outline: none;
+}
+.dashboard .dqa-btn {
+  background: var(--dash-accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-weight: 700;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.dashboard .dqa-btn:hover {
+  background: #c9684f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(224, 122, 95, 0.3);
+}
+.dashboard .dqa-btn:active {
+  transform: translateY(0);
+}
+
+
+/* ===== Mission Monitor (objective -> milestones) ===== */
+.dashboard .dash-missions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+  margin: 10px 0;
+}
+.dashboard .mission {
+  background: var(--dash-card-bg);
+  border: 1px solid var(--dash-line);
+  border-radius: var(--dash-radius);
+  padding: 14px 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.dashboard .mission:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+  border-color: var(--dash-accent);
+}
+.dashboard .m-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.dashboard .m-title { font-weight: 700; font-size: 0.98em; text-decoration: none !important; color: var(--text-normal); }
+.dashboard .m-title:hover { color: var(--dash-accent); }
+.dashboard .m-phase {
+  flex: none; font-size: 0.68em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  background: var(--dash-accent); color: #fff; padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+}
+.dashboard .m-obj { font-size: 0.8em; color: var(--text-muted); margin: 8px 0 10px; line-height: 1.35; }
+
+/* milestone chips */
+.dashboard .m-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.dashboard .chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.72em; font-weight: 700; padding: 3px 9px; border-radius: 999px;
+  border: 1px solid var(--dash-line);
+}
+.dashboard .chip i { font-style: normal; font-weight: 600; opacity: 0.9; }
+.dashboard .chip.done   { background: #5ca86c22; border-color: #5ca86c66; color: #5ca86c; }
+.dashboard .chip.active { background: var(--dash-accent); border-color: var(--dash-accent); color: #fff; }
+.dashboard .chip.todo   { background: transparent; color: var(--text-muted); }
+
+/* overall bar */
+.dashboard .m-foot { display: flex; align-items: center; gap: 8px; }
+.dashboard .m-bar { flex: 1; height: 6px; border-radius: 999px; background: var(--background-modifier-border); overflow: hidden; }
+.dashboard .m-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--dash-accent2), var(--dash-accent)); transition: width 0.4s ease; }
+.dashboard .m-pct { font-size: 0.72em; color: var(--text-muted); font-weight: 600; white-space: nowrap; }
+.dashboard .m-next {
+  margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--dash-line);
+  font-size: 0.78em; color: var(--text-muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+
+/* latest EOD line on mission cards */
+.dashboard .m-eod {
+  margin-top: 4px;
+  font-size: 0.78em;
+  opacity: 0.72;
+}
+.dashboard .m-eod a { color: var(--dash-accent); }

@@ -6,5 +6,8 @@
   "table-editor-obsidian",
   "obsidian-git",
   "calendar",
-  "obsidian-local-rest-api"
+  "obsidian-local-rest-api",
+  "omnisearch",
+  "tag-wrangler",
+  "obsidian-icon-folder"
 ]

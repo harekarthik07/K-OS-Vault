@@ -306,20 +306,20 @@ Kinetic-theory-based μ(T). T^(3/2) from the Maxwell-Boltzmann speed distributio
 - [x] Material: boussinesq 1.145, β 0.00323457, Cp 1007, k 0.02627, μ sutherland
 - [x] Operating: gravity ON, Op Temp 309.16, specified ρ_op 1.145, ref-P loc (0, 0.53345, 0.01298)
 - [x] Solver: Coupled + PRESTO! + 2nd order, Pseudo-time OFF, Courant 200, k-ω SST
-- [ ] Reference Values: Temperature → 309.16, Reference Zone → fluid
-- [ ] IGBT energy source entered (P_loss/V_die with [W] tag)
-- [ ] Fan curve loaded; rotational direction verified
-- [ ] Std init 309.16 → patch IGBT 350 / HS 320
-- [ ] Monitors + autosave set
-- [ ] Run 100 → confirm reverse flow clears ~15 iters → continue to convergence
-- [ ] Post-convergence: check actual y+ → set Yplus-for-HTC → report h per zone → feed Cauer R_conv
-- [ ] Verify energy balance Σq″_out ≈ P_IGBT_in
+- [x] Reference Values: Temperature → 309.16, Reference Zone → fluid ✅ 2026-09-03
+- [x] IGBT energy source entered (P_loss/V_die with [W] tag) ✅ 2026-09-03
+- [x] Fan curve loaded; rotational direction verified ✅ 2026-09-03
+- [x] Std init 309.16 → patch IGBT 350 / HS 320 ✅ 2026-09-03
+- [x] Monitors + autosave set ✅ 2026-09-03
+- [x] Run 100 → confirm reverse flow clears ~15 iters → continue to convergence ✅ 2026-09-03
+- [x] Post-convergence: check actual y+ → set Yplus-for-HTC → report h per zone → feed Cauer R_conv ✅ 2026-09-03
+- [x] Verify energy balance Σq″_out ≈ P_IGBT_in ✅ 2026-09-03
 
 ## Promotion checklist (before flipping status: promoted)
-- [ ] Definition is generalizable, not project-specific
-- [ ] At least one equation or diagram
-- [ ] Linked to a Knowledge MOC (`[[CFD]]`, `[[Heat Transfer]]`)
-- [ ] Sources cited
+- [x] Definition is generalizable, not project-specific ✅ 2026-09-03
+- [x] At least one equation or diagram ✅ 2026-09-03
+- [x] Linked to a Knowledge MOC (`[[CFD]]`, `[[Heat Transfer]]`) ✅ 2026-09-03
+- [x] Sources cited ✅ 2026-09-03
 
 ## Atlas Connections
 - [[CFD]]
