@@ -7,6 +7,10 @@ created: 2026-09-15
 sources: ["[[2026-09-15 MC_HS_ETM_I2 — Thermal Budget & Parameter Derivation (validated)]]", "[[Daily Log#2026-09-15]]"]
 extracted_from: ["[[2026-09-15 MC_HS_ETM_I2 — Thermal Budget & Parameter Derivation (validated)]]"]
 tags: [thermal, convection, heatsink, fin-design, design-tool]
+
+> [!cite] Also applied
+> 2026-09-28 — fin study delivered as an `(h, A)` lever map in the design tool: [[EOD_2026-09-28_ETM_1D_Thermal_Tool]]
+
 ---
 
 # Only the h·A product matters for convective resistance

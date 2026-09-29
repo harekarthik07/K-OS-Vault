@@ -55,7 +55,7 @@ Phase status legend: ✅ done · 🟢 in progress · ⚪ queued/TBD
 - [x] Named Selection → body name → GeoBody ID scoping fallback
 - [x] Single-body (`G_Bridge`) verified against the Icepak contour
 - [x] Re-verified end-to-end (batch mode) for all 6 bodies — `AC_Busbar_A/B/C`, `DC_Busbar_A/B`, `G_Bridge`
-- [ ] Set `expect_min_c` / `expect_max_c` in Settings so future runs self-validate
+- [x] Set `expect_min_c` / `expect_max_c` in Settings so future runs self-validate ✅ 2026-09-29
 - [ ] (tool backlog) add m/mm sanity assert to the import step — warn on 1000× coord-vs-unit mismatch
 
 ### ✅ Phase 4 — Structural cold↔hot + strain extraction (done 2026-09-26)

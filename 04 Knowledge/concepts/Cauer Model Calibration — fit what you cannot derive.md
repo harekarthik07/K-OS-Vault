@@ -8,6 +8,10 @@ aliases: ["Cauer_Model_Calibration", "Fit what you cannot derive"]
 sources: ["[[2026-09-15 MC_HS_ETM_I2 — Thermal Budget & Parameter Derivation (validated)]]", "[[Daily Log#2026-09-15]]"]
 extracted_from: ["[[2026-09-15 MC_HS_ETM_I2 — Thermal Budget & Parameter Derivation (validated)]]"]
 tags: [thermal, cauer, calibration, method, etm]
+
+> [!cite] Also applied
+> 2026-09-28 — reused in the 1D design tool (fit `h`, not `Rhs`; 4.9 % vs 35 % spread): [[EOD_2026-09-28_ETM_1D_Thermal_Tool]]
+
 ---
 
 # Cauer Model Calibration — fit what you cannot derive
