@@ -24,7 +24,7 @@ related: ["[[00 Home]]", "[[EXP_4min_Dyno_Run44]]", "[[2026-09-29 Peak-power vs 
 | Alloy | LM25 (k 150.6) | current GDC part |
 | Geometry | L 18 mm, A_fin 0.232 m², A_contact 0.00910 m², A_base 0.0343 m² | CAD |
 | h | 29.59 W/m²K | calibrated (only fitted parameter) |
-| Mass | m_total 3.3224 kg, split 0.170 (m_hs 2.7576, m_igbt 0.5648) | CAD |
+| Mass | m_total 3.32242 kg → m_igbt 0.56264, m_hs 2.75978 (C_plate 490, C_hs 2404 J/K) | CAD / Excel |
 | Ambient / duration | 36 °C / 240 s | typical dyno |
 
 ## Loss cross-check (why 470 W is the right number)

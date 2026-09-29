@@ -33,7 +33,7 @@ Close out Part 1 (thermal budget + parameter derivation), then build the **1D th
 | App vs core (defaults) | Tj_peak **93.5**, Rhs **0.0319**, τ2 **425**, Rtot **0.1858** |
 | Excel mode end-to-end (run 44) | loads; Tj_peak **91.6** on real P_inv profile |
 
-**ADC12 (k=92) vs LM25 (k=150.6):** `Rhs 0.05216 vs 0.03191 (+63 %)`. Tj @240 s (492 W / 36 °C): **90.8 vs 83.0 °C**. Time to NTC 95 °C (492 W / 45 °C) drops **270 s → 198 s** — ADC12 fails the 4-min duty at hot ambient without an airflow offset (needs h 29.6 → ~34.4, +16 %).
+**ADC12 (k=92) vs LM25 (k=150.6):** `Rhs 0.05216 vs 0.03191 (+63 %)`. Tj @240 s (492 W / 36 °C): **90.8 vs 83.0 °C**. Time to NTC 95 °C (492 W / 45 °C) drops **270 s → 198 s** — ADC12 fails the 4-min duty at hot ambient without an airflow offset (needs h 29.59 → ~34.4, +16 %).
 
 **L-sweep:** `R_hs` minimum at **17.9 mm**; part is 18 mm — already optimal (spreading vs conduction cross right where the part sits). Matches the Phase-1 estimate (≈18.1 mm).
 
@@ -86,7 +86,7 @@ Cauer ladder `Rjc | Rcase-hs | Rhs | Rconv,lat` with junction and heatsink masse
 
 ### 1D design tool — delivered app
 ![[MC_ETM_1D_Tool_GUI.png]]
-Defaults (LM25, 470 W const, 36 °C) @ 240 s: `T_ntc 80.9`, `T_j 93.5`, `T_fin 64.0`. Bottom readout `Rhs/Rtot/τ2/Tj_pk = 0.0319 / 0.1858 / 425 / 93.5`. Mass: `m_total 3.3224 kg`, split 0.170 → `m_hs 2.7576`, `m_igbt 0.5648`.
+Defaults (LM25, 470 W const, 36 °C) @ 240 s: `T_ntc 80.9`, `T_j 93.5`, `T_fin 64.0`. Bottom readout `Rhs/Rtot/τ2/Tj_pk = 0.0319 / 0.1858 / 425 / 93.5`. Mass (CAD/Excel): `m_total 3.32242 kg` → `m_igbt 0.56264`, `m_hs 2.75978` (C_plate 490, C_hs 2404 J/K). *(GUI total-mode slider rounds split to 0.170 → 2.7576/0.5648, a ~2 g difference — negligible.)*
 
 ### Code — `analytical_loss.m`
 ```matlab
