@@ -5,7 +5,7 @@ objective: "Dyno-validated 1D electro-thermal (Cauer) model of the IGBT+heatsink
 status: active
 domain_primary: Thermal Management
 domain_secondary: [Power Electronics]
-current_phase: Phase 3
+current_phase: Phase 4
 ---
 
 # ETM For Heatsink and IGBT
@@ -20,6 +20,7 @@ current_phase: Phase 3
 - Concepts/ — project staging (harvested to the Ideaverse on `/weekly`)
 - Experiments/ · Resources/ — optional (runs, datasheets); leave empty if the log covers it
 - Tool: [[1D Thermal Design Tool — spec & flowchart]] · [[1D Thermal Design Tool — README & usage]]
+- `Long-Cycle Validation/` — Phase 4 sub-project: [[Problem_Statement]] · [[Progress_Log]] · [[Flowchart]] · [[Approach_and_TODO]] · [[Section4_Theory_LongCycle]]
 
 ---
 
@@ -46,7 +47,7 @@ current_phase: Phase 3
 > Phase 1 said "build in Simulink; no parallel MATLAB reimplementation (would fork the validation)." A parallel core (`thermal_core`) **was** built — deliberately, because live sliders need microseconds — and the fork risk is mitigated by `test_core.m` locking the twin to `MC_HS_ETM_I2.slx` at **<0.01 K**. `h` kept as the one fitted number; +1.89 K bias uncorrected; transient-only ≤300 s.
 > **Carried:** a dedicated T_j-vs-total-mass sweep figure (the app supports it; not yet saved as a plot).
 
-### 🟢 Phase 3 — Decisions & handover (in progress, started 2026-09-28)
+### ✅ Phase 3 — Decisions & handover (2026-09-28 → 2026-09-29)
 `#decision #alloy #handover`
 **Objective:** Turn the tool's outputs into decisions and make the tool a clean handover.
 **Tasks:**
@@ -55,6 +56,18 @@ current_phase: Phase 3
 - [x] Add the T_j-vs-total-mass sweep figure (carried from Phase 2) ✅ 2026-09-29
 - [x] Standing re-verification: run `test_core` + `test_app_gate` after any physics edit ✅ 2026-09-29
 - [x] Write up → `Results/YYYY-MM-DD Phase 3 …` ✅ 2026-09-29
+
+### 🟢 Phase 4 — Long-cycle validation (started 2026-10-01)
+`#matlab #validation #adaptive-dt #cross-correlation #wltp #capacitance`
+**Objective:** Extend the validated dyno model to long drive-cycle data (WLTP) with a dyno/long-cycle selector — same solver, no fork. Tests the thermal **capacitances** (tau1, tau2) that monotonic dyno bursts couldn't isolate, via three orthogonal metrics (RMSE, bias, cross-correlation lag). `h` turned out to vary significantly with cooling condition (see 2026-10-06); differential-h(v) ram-air modelling is still a future project.
+**Docs:** [[Problem_Statement]] · [[Flowchart]] · [[Approach_and_TODO]] · [[Progress_Log]] · [[Section4_Theory_LongCycle]] · [[HS_Transient_Physics_h_and_C]]
+**Tasks:**
+- [ ] Phase 1 — `thermal_core` adaptive dt (`dt = min(max(0.05, t_end/20000), 0.5)`); gate: dyno 4-min still Tj 93.5
+- [ ] Phase 2 — app: dyno/long-cycle selector + display decimation (no slider lag on ~6000 samples)
+- [x] Phase 3 — `cycle_fit`: RMSE + bias + cross-correlation lag ✅ 2026-10-06 — `fit_h_cycle.m` + app button delivered, run on 4 real conditions
+- [ ] Phase 4 — overlay measured vs model on WLTP run (48→57 °C), read the lag
+**2026-10-06 finding:** C = 2402 J/K (CAD value) confirmed across every cooling condition via lag = +0 s. h spans **~14-30 W/m2K** across conditions (fan-off floor ~14 is the deration-critical case) — one fixed h cannot represent the system. Full write-up: [[EOD_2026-10-06]] · theory: [[HS_Transient_Physics_h_and_C]]. Next: segment-fit h(t) piecewise (moving vs idle).
+**Deferred:** h(v) ram-air term, road-cycle validation, 100-run dyno h re-fit.
 
 ---
 
