@@ -60,6 +60,7 @@ Phase status legend: ✅ done · 🟢 in progress · ⚪ queued/TBD
 - [x] Own `ve-session` cookie; default-deny API; login lockout
 - [x] Home console, light/dark contrast sweep, T30 model 23× smaller
 - [x] Deploy hardening (pm2, build-abort)
+- [x] Unified LabBar across labs; contributor walkthrough
 - [ ] HTTPS via a public raptee.com cert (self-CA attempt reverted)
 
 ### ⚪ Phase 2 — Calculator Library shell + seed calcs
@@ -74,6 +75,7 @@ Phase status legend: ✅ done · 🟢 in progress · ⚪ queued/TBD
 `#nvh #vibrations`
 **Objective:** vibration/acoustic log → RMS, crest factor, gear-mesh freq, order tracking → PASS/FAIL. Reuses golden-limit + Teams machinery.
 **Tasks:**
+- [x] NVH sidebar group + `/nvh` placeholder (2026-10-27)
 - [ ] Confirm vibration/acoustic log format
 - [ ] Define golden limits per metric
 

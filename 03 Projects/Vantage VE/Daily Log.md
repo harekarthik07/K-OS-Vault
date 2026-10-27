@@ -14,11 +14,18 @@ Append newest at top. One `##` per day.
 - **Hardened VE auth:** default-deny middleware on every `/api` route except health + login (12 routes were open on the LAN, incl. DBC activate). Login lockout: 5 bad passwords → 15 min, counted from the audit table. Removed admin JWT from `localStorage`. Unknown usernames pay the same bcrypt cost (no account enumeration). `selfcheck_auth.py` covers it.
 - Tried **HTTPS on the R&D LAN** (own name-constrained CA + Node TLS proxy on :3443) — then **reverted**: installing a CA on every client PC was too much friction.
 - Unified "VANTAGE - VE" branding typography.
+- **One LabBar for every lab** (breadcrumb · context chips · filters · ≤2 actions, rest in overflow). Removed the tab rows that duplicated the sidebar; made it one full-bleed sticky strip in thermal, road and powertrain. Dropped 43 orphaned thermal.css rules.
+- **Dropped the Thermal Lab overview** — `/thermal` now lands on Case & Regime (`THERMAL_HOME` derived from `STAGES[0]`).
+- Added a **contributor walkthrough** (branch per person, separate preview ports, admin review → merge → deploy).
+- **NVH lab group** started: sidebar group + `/nvh` placeholder page (Powertrain Phase 2, no backend yet).
+- Vault: created this Vantage VE project log and committed it.
 **Learned:**
 - Default-deny > opt-in: a route someone forgets to decorate is closed, not open.
+- Chrome that repeats the sidebar is clutter — the top bar shows context, never navigation.
 - Audit timestamps are whole seconds → count lockout failures by row id, not ts (self-check caught it).
 **Next:**
 - Get a publicly trusted cert under raptee.com (covers Vantage QC too). Until then passwords + cookies cross the LAN in plain HTTP. See [[Questions|Q5]].
+- Scaffold the NVH tool behind `/nvh` (needs [[Questions|Q4]] log format).
 
 ## 2026-10-26
 **Did:**
