@@ -11,6 +11,30 @@ End of day: run `/eod` — triages into `Concepts/` (durable truth), `Experiment
 
 ---
 
+## 2026-10-27
+**Did:**
+- Built a Dyno **Trend QC Lab**: bikes grouped into batches of 10 by bike number, compared batch to batch. Shipped v1.7.0, cut to three tools in v1.7.1 (Scorecard / Limit Watch / Batch vs Batch), brought the charts back in v1.7.2.
+- Added "how to read this" panels and a roomier layout, then **merged the Trend QC Lab into the Overview** (6 blocks, one pass rate). Shipped as **v1.7.3**. Full record: [[2026-10-27 Dyno Overview merged v1.7.3]].
+- Lifted the Overview's per-test verdict into `app/dyno/verdict.js`; the batch rollup is in `app/dyno/trendSeries.js`.
+
+**Decided:**
+- The Dyno pass rate counts **bikes** (latest test each), not runs. Golden bikes and wrong-procedure runs are left out.
+- Only the 5 PASS/FAIL checks go on the QC page. Rise rate, peak temp, DCIR and quality score stay on the other tabs.
+- Charts over tables, and every chart gets a "how to read this" panel.
+
+**Learned:**
+- The same line read 34.4% (runs) on Overview and 32% (bikes) on Trend QC Lab. See [[Landmines]].
+- High Cell ΔT is the #1 fail cause and Motor ΔT is drifting up. See [[2026-10-27 Dyno batch trend analysis]].
+- Windows case clash `Sidebar.js` vs `sidebar/`, and worktree preview needs its own `node_modules`. See [[Landmines]].
+
+**Next:**
+- Open Dyno → Overview logged in on :3000. Nobody has seen it rendered yet, and the "By test date" view is unclicked.
+- Tell the team the headline moved 34.4% → 32% because of counting, not quality.
+- Questions Q5–Q8.
+
+**Concepts touched:** [[Dyno]] [[Landmines]] [[Verdict Engine]]
+
+---
 ## 2026-09-03
 **Did:**
 - Built the **Heat-Transfer module** (`/heat-transfer`) — CHT configurator, 1D/ETM sim, fan PQ debugger, case persistence. New `heat_transfer_backend/` + `/api/heat-transfer/*`. Full record: [[Heat-Transfer Module — Build & Decisions]].
