@@ -1,6 +1,14 @@
 {
   "_comment": "Single source of truth for K-OS domain routing. Edit this file to add/rename buckets. Folder names under 04 Knowledge/ and 06 Resources/ must match keys exactly. Keywords are lowercased substrings; aliases are alt names the AI may emit. Order matters — first match wins, so put specific domains before general ones.",
   "domains": {
+    "Battery & BMS": {
+      "keywords": ["battery", "bms", "c-rate", "state of charge", "state of health", "cell balancing", "lithium", "nmc", "lfp", "bernardi", "thermal runaway", "pack voltage", "coulomb counting", "regen limit"],
+      "aliases": ["battery", "bms", "battery_bms", "battery-and-bms"]
+    },
+    "Vehicle Dynamics": {
+      "keywords": ["vehicle dynamics", "rake angle", "mechanical trail","wheelbase", "counter-steer", "countersteer", "lean angle", "weight transfer", "camber", "caster", "toe angle", "slip angle", "understeer", "oversteer", "anti-squat", "road load", "rolling resistance", "quarter-car"],
+      "aliases": ["vehicle_dynamics", "vd", "chassis"]
+    },
     "Power Electronics": {
       "keywords": ["igbt", "mosfet", "svpwm", "modulation index", "switching loss", "conduction loss", "inverter", "gate driver", "dead time", "pwm", "dc link"],
       "aliases": ["power_electronics", "power-electronics"]
