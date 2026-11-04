@@ -24,6 +24,16 @@ Up: [[00 Home|EV Academy]] · [[Progress]]
 ## Key takeaways
 1.
 
+## Watch · See · Read
+**Watch**
+- [ ]() — rating: /5
+
+**See**
+- []()
+
+**Read**
+- 
+
 ## Mistakes I made
 - [[<gotcha claim>]]
 

@@ -31,6 +31,8 @@ Every block is a heat source in a thermal model. Validate with logged pack curre
 ## Where used
 - [[00 Home|EV Academy]] EV101
 ## References
+- [EV Drive Units Explained](https://www.youtube.com/watch?v=9aAdqxvQGeQ)
+- [Inverter Explained](https://www.youtube.com/watch?v=E9-uQMkNqvM)
 - Larminie & Lowry, *Electric Vehicle Technology Explained*
 ## Key identifiers
 `VCU` `BMS` `MC` `MCU` `inverter` `PMSM` `HV bus`

@@ -39,6 +39,11 @@ gate: passed | partial | failed
 === FILE: 04 Knowledge/gotchas/<Gotcha claim>.md ===
 <full note>
 
+=== LEARN ===
+watch: <YouTube title> | <url> | <lesson>
+see: <artifact title> | <claude.ai artifact url>
+read: <book, chapter>
+
 === DAILY LOG ===
 - [[YYYY-MM-DD Session NNN]] — <one line> · gate: <status>
 
@@ -50,6 +55,12 @@ gate: passed | partial | failed
 === END ===
 ```
 No MOC blocks: maps in `04 Knowledge/maps/` build themselves from `domain`.
+
+## Watch · See · Read (every lesson)
+- **Watch:** 1–3 YouTube videos, found by search at lesson time (never from memory). Karthik rates each 1–5; drop anything below 3.
+- **See:** at least one interactive artifact per course (calculator, animation, diagram) because Karthik learns visually. Artifacts are reused and updated, not duplicated.
+- **Read:** a book chapter only when the video and artifact leave a gap.
+- All three are listed in the session note under `## Watch · See · Read` and in the concept's `## References`.
 
 ## Rules
 1. One concept per session. Gate before advance.

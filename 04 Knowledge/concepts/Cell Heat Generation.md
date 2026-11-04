@@ -27,6 +27,8 @@ Q_cell is the volumetric heat source in the pack model. Fluent MSMD sub-models: 
 ## Where used
 - [[00 Home|EV Academy]] EV102, CAE1
 ## References
+- [Battery Thermal Modeling](https://www.youtube.com/watch?v=HWaZU8lm7_o)
+- [Pack Lab](https://claude.ai/artifact/CCymsnCYCgY6uha3hkTLXg)
 - Ansys Fluent Battery Module User Guide
 ## Key identifiers
 `Bernardi` `Joule heat` `entropic heat` `MSMD` `NTGK` `ECM` `P2D`

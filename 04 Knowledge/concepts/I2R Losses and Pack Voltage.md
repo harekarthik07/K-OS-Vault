@@ -35,5 +35,6 @@ Pack thermal model: cell heat source set by I_cell; busbar/cable Joule heating s
 ## Where used
 - [[00 Home|EV Academy]] EV102
 ## References
+- [Pack Lab](https://claude.ai/artifact/CCymsnCYCgY6uha3hkTLXg) — toggle 100S4P vs 50S8P
 ## Key identifiers
 `I²R` `Joule heating` `HV architecture` `busbar` `series` `parallel`

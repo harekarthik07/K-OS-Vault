@@ -34,6 +34,9 @@ Pack geometry and S/P layout define the cell array in the thermal model.
 ## Where used
 - [[00 Home|EV Academy]] EV102
 ## References
+- [Batteries & Cells in Series & Parallel](https://www.youtube.com/watch?v=HbXq0mePbHE)
+- [Lithium Ion Battery Pack Architecture](https://www.youtube.com/watch?v=q46Ev9KVNLI)
+- [Pack Lab](https://claude.ai/artifact/CCymsnCYCgY6uha3hkTLXg)
 - Andrea, *Battery Management Systems for Large Lithium-Ion Battery Packs*
 ## Key identifiers
 `NMC` `LFP` `21700` `nS mP` `nominal voltage` `Wh`
