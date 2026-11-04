@@ -15,6 +15,7 @@ pace: 1.5 h/day, 5 days/week
 Karthik's 26-week program: EV systems + vehicle dynamics + CAE V&V, anchored on the Raptee T30.
 
 ## Run it
+- **[EV Academy Hub](https://claude.ai/artifact/W84v9ovW2BYMRPDE5mq9jT)** — live course site: progress, curriculum, all tools, library, log
 - [[Curriculum]] — semesters, courses, exit tests
 - [[Study Protocol]] — `/studystart`, `/studydone`, handoff format
 - [[Progress]] — gates, open revisits, stats

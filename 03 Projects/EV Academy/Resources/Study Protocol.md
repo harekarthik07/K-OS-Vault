@@ -62,6 +62,9 @@ No MOC blocks: maps in `04 Knowledge/maps/` build themselves from `domain`.
 - **Read:** a book chapter only when the video and artifact leave a gap.
 - All three are listed in the session note under `## Watch · See · Read` and in the concept's `## References`.
 
+## The Hub
+[EV Academy Hub](https://claude.ai/artifact/W84v9ovW2BYMRPDE5mq9jT) is the course website. On every `/studydone`, Claude updates the hub's data block (sessions, concepts, gotchas, videos, current course) and adds any new tool as a view, then republishes to the same link.
+
 ## Rules
 1. One concept per session. Gate before advance.
 2. Concepts in Karthik's own words. `status`: seedling = seen once · budding = passed a gate · evergreen = used in ≥2 projects or validated vs data.

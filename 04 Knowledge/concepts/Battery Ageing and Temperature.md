@@ -27,6 +27,6 @@ The two numbers that matter from a pack thermal sim: **Tmax** and **ΔT** across
 - [[00 Home|EV Academy]] EV102, CAE1
 ## References
 - [Heat vs Cold: What Really Kills EV Batteries?](https://www.youtube.com/watch?v=ZppdYZrnkIA)
-- [Pack Lab](https://claude.ai/artifact/CCymsnCYCgY6uha3hkTLXg) — lower cooling, watch ageing rate
+- [Pack Lab](https://claude.ai/artifact/W84v9ovW2BYMRPDE5mq9jT#pack-lab) — lower cooling, watch ageing rate
 ## Key identifiers
 `SEI` `calendar ageing` `cycle ageing` `Tmax` `ΔT` `SOH`

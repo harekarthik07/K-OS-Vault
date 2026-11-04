@@ -28,6 +28,6 @@ Cell datasheet C-rate limits vs predicted C-rate on the drive cycle; hot-spot ce
 - [[00 Home|EV Academy]] EV102
 ## References
 - [Everything you'll want to know about C-Rating](https://www.youtube.com/watch?v=A5xRElEazSs)
-- [Pack Lab](https://claude.ai/artifact/CCymsnCYCgY6uha3hkTLXg)
+- [Pack Lab](https://claude.ai/artifact/W84v9ovW2BYMRPDE5mq9jT#pack-lab)
 ## Key identifiers
 `C-rate` `Ah` `capacity` `discharge rate`
